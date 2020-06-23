@@ -1,0 +1,13 @@
+= 61231VCH41V
+このプログラムはフォローしているアカウントの投稿を学習し、マルコフ連鎖を用いてめちゃくちゃな文章を生成し、MisskeyやDiscordに垂れ流します。
+
+== Requirement
+* Mecab
+
+== Usage
+
+== License
+Licensed under the DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE Version 2(link:./LICENSE[LICENSE] or link:http://www.wtfpl.net/txt/copying/[])
+
+== Author
+https://www.sc3.fun[銀猫さん] (link:mailto:silverscat_3@mail.sc3.fun[silverscat_3@mail.sc3.fun])
