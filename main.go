@@ -14,19 +14,23 @@ import (
 
 func main() {
 	var (
-		misskeyToken = flag.String("misskey_token", "", "API token of Misskey.")
+		misskeyToken = flag.String("misskey_token", "", "API token of Misskey")
+		misskeyHost  = flag.String("misskey_host", "", "URL of Misskey server")
 	)
 
 	flag.Parse()
 
-	m, err := misskey.NewMisskey("https://groundpolis.app/", *misskeyToken)
+	m, err := misskey.NewMisskey(*misskeyHost, *misskeyToken)
 	if nil != err {
 		log.Fatalln(err)
 	}
 
-	if err := m.NotePost(genString()); nil != err {
+	note := genString()
+
+	if err := m.NotePost(note); nil != err {
 		log.Fatalln(err)
 	}
+	log.Printf("Posted!! %s\n", trimString(note))
 }
 
 func genString() string {
@@ -53,6 +57,23 @@ func genString() string {
 	result := []string{strings.Join(result1, ""), strings.Join(result2, ""), strings.Join(result3, "")}
 
 	return strings.Join(result, "")
+}
+
+func trimString(s string) string {
+	result := []rune{}
+	for i, r := range []rune(s) {
+		result = append(result, r)
+		if 31 < i {
+			result = append(result, ' ')
+			result = append(result, '.')
+			result = append(result, '.')
+			result = append(result, '.')
+
+			break
+		}
+	}
+
+	return string(result)
 }
 
 func loadFile(fileName string) []string {
