@@ -1,0 +1,9 @@
+[Unit]
+Description=Shitpost to Misskey.
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/61231VCH41V
+
+[Install]
+WantedBy=multi-user.target

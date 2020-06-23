@@ -1,0 +1,9 @@
+[Unit]
+Description=Shitpost to Misskey every 10 minutes.
+
+[Timer]
+OnUnitActiveSec=10min
+Unit=61231VCH41V-post.service
+
+[Install]
+WantedBy=multi-user.target
