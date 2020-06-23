@@ -2,16 +2,34 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strings"
 
 	"github.com/bluele/mecab-golang"
 	"github.com/silverscat-3/61231VCH41V/markov"
+	"github.com/silverscat-3/61231VCH41V/misskey"
+	flag "github.com/spf13/pflag"
 )
 
 func main() {
+	var (
+		misskeyToken = flag.String("misskey_token", "", "API token of Misskey.")
+	)
+
+	flag.Parse()
+
+	m, err := misskey.NewMisskey("https://groundpolis.app/", *misskeyToken)
+	if nil != err {
+		log.Fatalln(err)
+	}
+
+	if err := m.NotePost(genString()); nil != err {
+		log.Fatalln(err)
+	}
+}
+
+func genString() string {
 	notes := loadFile("output.txt")
 
 	m, err := mecab.New()
@@ -34,7 +52,7 @@ func main() {
 	result3 := markov.MarkovChainExec(markovBlocks)
 	result := []string{strings.Join(result1, ""), strings.Join(result2, ""), strings.Join(result3, "")}
 
-	fmt.Println(strings.Join(result, ""))
+	return strings.Join(result, "")
 }
 
 func loadFile(fileName string) []string {

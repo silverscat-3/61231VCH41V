@@ -1,2 +1,4 @@
 github.com/bluele/mecab-golang v0.0.0-20180831023624-c8cfe04e87f9 h1:+x8pRe3RdzZHEs6nycQrn3C62GDGsWN5o97CzMagl2w=
 github.com/bluele/mecab-golang v0.0.0-20180831023624-c8cfe04e87f9/go.mod h1:K/0HE3I7smFaZ/jKh/E8sObNxjBPo8lor+Uxk5rxVoM=
+github.com/spf13/pflag v1.0.5 h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=
+github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
