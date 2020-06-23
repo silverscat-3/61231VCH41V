@@ -1,10 +1,11 @@
+GOBUILD=go build
+BIN_NAME=61231VCH41V.out
+
 .PHONY: run
 run:
-	export CGO_LDFLAGS="`mecab-config --libs`"
-	export CGO_CFLAGS="-I`mecab-config --inc-dir`"
-	go run ./main.go
+	CGO_LDFLAGS="`mecab-config --libs`" CGO_CFLAGS="-I`mecab-config --inc-dir`" $(GOBUILD) -o ./$(BIN_NAME) -v
+	./$(BIN_NAME)
 
+.PHONY: build
 build:
-	export CGO_LDFLAGS="`mecab-config --libs`"
-	export CGO_CFLAGS="-I`mecab-config --inc-dir`"
-	go build -o ./61231VCH41V.out
+	CGO_LDFLAGS="`mecab-config --libs`" CGO_CFLAGS="-I`mecab-config --inc-dir`" $(GOBUILD) -o ./$(BIN_NAME) -v

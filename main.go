@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/bluele/mecab-golang"
-	"github.com/silverscat-3/612311VCH41V/markov"
+	"github.com/silverscat-3/61231VCH41V/markov"
 )
 
 func main() {
@@ -30,23 +30,8 @@ func main() {
 		markovBlocks = append(markovBlocks, markov.GetMarkovBlocks(word)...)
 	}
 	result1 := markov.MarkovChainExec(markovBlocks)
-	result1[len(result1)-1] = ""
-	if "。" != result1[len(result1)-1] {
-		result1 = append(result1, "。")
-	}
-
 	result2 := markov.MarkovChainExec(markovBlocks)
-	result2[len(result2)-1] = ""
-	if "。" != result2[len(result2)-1] {
-		result2 = append(result2, "。")
-	}
-
 	result3 := markov.MarkovChainExec(markovBlocks)
-	result3[len(result3)-1] = ""
-	if "。" != result3[len(result3)-1] {
-		result3 = append(result3, "。")
-	}
-
 	result := []string{strings.Join(result1, ""), strings.Join(result2, ""), strings.Join(result3, "")}
 
 	fmt.Println(strings.Join(result, ""))

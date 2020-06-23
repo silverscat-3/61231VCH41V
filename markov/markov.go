@@ -76,6 +76,10 @@ func connectBlocks(array [][]string, dist []string) []string {
 
 	for _, word := range array[rand.Intn(len(array))] {
 		if 0 != i {
+			if "#*#* EOS *#*#" == word {
+				continue
+			}
+
 			dist = append(dist, word)
 		}
 		i++
