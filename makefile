@@ -1,11 +1,18 @@
 GOBUILD=go build
-BIN_NAME=61231VCH41V.out
+NAME=61231VCH41V
+
+all: build
 
 .PHONY: run
 run:
-	CGO_LDFLAGS="`mecab-config --libs`" CGO_CFLAGS="-I`mecab-config --inc-dir`" $(GOBUILD) -o ./$(BIN_NAME) -v
-	./$(BIN_NAME)
+    @make build
+    ./$(NAME).out
 
 .PHONY: build
 build:
-	CGO_LDFLAGS="`mecab-config --libs`" CGO_CFLAGS="-I`mecab-config --inc-dir`" $(GOBUILD) -o ./$(BIN_NAME) -v
+    CGO_LDFLAGS="`mecab-config --libs`" CGO_CFLAGS="-I`mecab-config --inc-dir`" $(GOBUILD) -o ./$(NAME).out -v
+
+.PHONY: install
+install:
+    @make build
+    install -s $(NAME).out /usr/local/bin/$(NAME)
