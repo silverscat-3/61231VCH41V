@@ -5,14 +5,14 @@ all: build
 
 .PHONY: run
 run:
-    @make build
-    ./$(NAME).out
+	make build
+	./$(NAME).out
 
 .PHONY: build
 build:
-    CGO_LDFLAGS="`mecab-config --libs`" CGO_CFLAGS="-I`mecab-config --inc-dir`" $(GOBUILD) -o ./$(NAME).out -v
+	CGO_LDFLAGS="`mecab-config --libs`" CGO_CFLAGS="-I`mecab-config --inc-dir`" $(GOBUILD) -o ./$(NAME).out -v
 
 .PHONY: install
 install:
-    @make build
-    install -s $(NAME).out /usr/local/bin/$(NAME)
+	make build
+	install -s $(NAME).out /usr/local/bin/$(NAME)
