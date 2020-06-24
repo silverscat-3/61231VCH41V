@@ -3,7 +3,8 @@ Description=Shitpost to Misskey.
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/61231VCH41V
+ExecStart=/usr/local/bin/61231VCH41V_post.sh
+EnvironmentFile=/etc/sysconfig/61231VCH41V_env
 
 [Install]
 WantedBy=multi-user.target
