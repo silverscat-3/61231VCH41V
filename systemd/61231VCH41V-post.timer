@@ -2,7 +2,7 @@
 Description=Shitpost to Misskey every 10 minutes.
 
 [Timer]
-OnUnitActiveSec=10min
+OnCalender=*:0,10,20,30,40,50
 Unit=61231VCH41V-post.service
 
 [Install]
