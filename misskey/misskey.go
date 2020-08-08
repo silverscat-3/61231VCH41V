@@ -24,6 +24,7 @@ func NewMisskey(host, token string) (*Misskey, error) {
 func (m *Misskey) NotePost(message string) error {
 	payload := map[string]interface{}{
 		"i":          m.Token,
+		"cw": "@gizenchan@best-friends.chat",
 		"visibility": "home",
 		"text":       message,
 	}
